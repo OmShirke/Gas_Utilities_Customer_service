@@ -1,1 +1,12 @@
+# Ignore virtual environment
 env/
+
+# Ignore database
+db.sqlite3
+
+# Ignore compiled files
+__pycache__/
+*.pyc
+
+# Ignore media/uploads if applicable
+media/
