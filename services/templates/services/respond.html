@@ -1,0 +1,29 @@
+<!-- respond_to_request.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Respond to Service Request</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Respond to Service Request</h1>
+
+    <h2>{{ service_request.customer_name }}'s Request</h2>
+    <p><strong>Request Type:</strong> {{ service_request.request_type }}</p>
+    <p><strong>Description:</strong> {{ service_request.description }}</p>
+    <p><strong>Status:</strong> {{ service_request.get_status_display }}</p>
+
+    <h3>Admin/Support Response</h3>
+    <form method="POST">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Submit Response</button>
+    </form>
+
+    <p>
+      <a href="{% url 'services:track_request' %}">Back to Track Requests</a>
+    </p>
+  </body>
+</html>

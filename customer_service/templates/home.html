@@ -14,10 +14,10 @@
         <ul>
           <li><a href="{% url 'home' %}">Home</a></li>
           {% if user.is_authenticated %}
-          <li><a href="{% url 'logout' %}">Logout</a></li>
+          <li><a href="{% url 'users:logout' %}">Logout</a></li>
           {% else %}
-          <li><a href="{% url 'register' %}">Register</a></li>
-          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'users:register' %}">Register</a></li>
+          <li><a href="{% url 'users:login' %}">Login</a></li>
           {% endif %}
           <li>
             <a href="{% url 'services:submit_request' %}">Submit Request</a>
@@ -29,6 +29,13 @@
       </nav>
     </header>
     <main>
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
       <p>Submit and track your service requests easily.</p>
     </main>
   </body>

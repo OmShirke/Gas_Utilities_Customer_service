@@ -1,0 +1,59 @@
+<!-- track_request.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Track Requests</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <h1>Track Your Requests</h1>
+
+    {% if requests %}
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer Name</th>
+          <th>Email</th>
+          <th>Request Type</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Response</th>
+          <!-- Add this column -->
+          <th>Created At</th>
+          <th>Updated At</th>
+          <th>Actions</th>
+          <!-- Add this column for response -->
+        </tr>
+      </thead>
+      <tbody>
+        {% for request in requests %}
+        <tr>
+          <td>{{ request.id }}</td>
+          <td>{{ request.customer_name }}</td>
+          <td>{{ request.email }}</td>
+          <td>{{ request.request_type }}</td>
+          <td>{{ request.description }}</td>
+          <td>{{ request.get_status_display }}</td>
+          <td>{{ request.response|default:"No response yet" }}</td>
+          <!-- Display response -->
+          <td>{{ request.created_at }}</td>
+          <td>{{ request.updated_at }}</td>
+          <td>
+            {% if user.is_staff %}
+            <a href="{% url 'services:respond' request.id %}">Respond</a>
+            <!-- Respond link for admins -->
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p>No requests found.</p>
+    {% endif %}
+  </body>
+</html>

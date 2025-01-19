@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Submit Service Request</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+  </head>
+  <body>
+    <header>
+      <h1>Submit Service Request</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'users:register' %}">Register</a></li>
+          <li><a href="{% url 'users:login' %}">Login</a></li>
+          <li>
+            <a href="{% url 'services:track_request' %}">Track Request</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Submit your request below:</h2>
+      <form method="POST">
+        {% csrf_token %}
+        <label for="customer_name">Name:</label>
+        <input
+          type="text"
+          id="customer_name"
+          name="customer_name"
+          required
+        /><br /><br />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required /><br /><br />
+
+        <label for="request_type">Request Type:</label>
+        <input
+          type="text"
+          id="request_type"
+          name="request_type"
+          required
+        /><br /><br />
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea
+        ><br /><br />
+
+        <button type="submit">Submit Request</button>
+      </form>
+
+      <hr />
+
+      <p>
+        After submitting, you can
+        <a href="{% url 'services:track_request' %}">track your request</a>.
+      </p>
+    </main>
+  </body>
+</html>
