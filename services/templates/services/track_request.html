@@ -11,6 +11,10 @@
   <body>
     <h1>Track Your Requests</h1>
 
+    <a href="{% url 'home' %}">
+      <button type="button">Home</button>
+    </a>
+
     {% if requests %}
     <table border="1">
       <thead>
