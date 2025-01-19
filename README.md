@@ -41,7 +41,6 @@ This is a web application built using Django, designed for managing and tracking
    ```bash
    python manage.py runserver
    ```
-   Now, visit `http://127.0.0.1:8000` to view the application.
 
 ### Admin Access:
 - Create a superuser to access the admin panel:
@@ -49,3 +48,15 @@ This is a web application built using Django, designed for managing and tracking
   python manage.py createsuperuser
   ```
 - You can now access the admin panel at `http://127.0.0.1:8000/admin/`.
+
+-  **Submit a Service Request**:
+  - Go to the "Submit Request" page and fill in your details (name, email, request type, and description).
+  - After submission, you can track the status of your request.
+
+- **Track a Service Request**:
+  - Go to the "Track Request" page, where you can view the status of your submitted requests.
+  - Only logged-in users can see their requests.
+
+- **Admin View**:
+  - Admins can log in to the admin panel and view all requests submitted by users.
+  - Admins can respond to requests by updating the status and adding responses.
