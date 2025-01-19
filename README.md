@@ -13,7 +13,7 @@ This is a web application built using Django, designed for managing and tracking
 ### Installation:
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/yourproject.git
+   git clone https://github.com/OmShirke/Gas_Utilities_Customer_service
    ```
 2. Navigate to the project directory:
    ```bash
@@ -49,7 +49,7 @@ This is a web application built using Django, designed for managing and tracking
   ```
 - You can now access the admin panel at `http://127.0.0.1:8000/admin/`.
 
--  **Submit a Service Request**:
+- **Submit a Service Request**:
   - Go to the "Submit Request" page and fill in your details (name, email, request type, and description).
   - After submission, you can track the status of your request.
 
