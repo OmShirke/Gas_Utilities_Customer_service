@@ -2,47 +2,26 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #f9f9f9;
 }
-
 header {
     background-color: #333;
     color: white;
-    padding: 10px 0;
+    padding: 10px 20px;
     text-align: center;
 }
-
-nav ul {
-    list-style-type: none;
+header h1 {
+    margin: 0;
+}
+header nav ul {
+    list-style: none;
     padding: 0;
 }
-
-nav ul li {
+header nav ul li {
     display: inline;
     margin: 0 10px;
 }
-
-nav ul li a {
+header nav ul li a {
     color: white;
     text-decoration: none;
-}
-
-main {
-    margin: 20px;
-}
-
-form {
-    margin: 20px 0;
-}
-
-button {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #555;
 }

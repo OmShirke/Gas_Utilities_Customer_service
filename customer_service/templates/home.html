@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gas Utility Service</title>
+    {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
@@ -12,16 +13,23 @@
       <nav>
         <ul>
           <li><a href="{% url 'home' %}">Home</a></li>
+          {% if user.is_authenticated %}
+          <li><a href="{% url 'logout' %}">Logout</a></li>
+          {% else %}
           <li><a href="{% url 'register' %}">Register</a></li>
           <li><a href="{% url 'login' %}">Login</a></li>
-          <li><a href="{% url 'services' %}">Services</a></li>
+          {% endif %}
+          <li>
+            <a href="{% url 'services:submit_request' %}">Submit Request</a>
+          </li>
+          <li>
+            <a href="{% url 'services:track_request' %}">Track Request</a>
+          </li>
         </ul>
       </nav>
     </header>
-
     <main>
       <p>Submit and track your service requests easily.</p>
-      <a href="{% url 'services' %}">View Services</a>
     </main>
   </body>
 </html>
