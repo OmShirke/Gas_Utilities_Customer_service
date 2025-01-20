@@ -5,6 +5,9 @@ class ServiceRequestForm(forms.ModelForm):
     class Meta:
         model = ServiceRequest
         fields = ['customer_name', 'email','request_type', 'description']
+        widgets = {
+            'request_type': forms.Select(),
+        }
 
 class ServiceRequestResponseForm(forms.ModelForm):
     class Meta:

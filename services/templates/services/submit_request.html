@@ -13,8 +13,8 @@
       <nav>
         <ul>
           <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'users:register' %}">Register</a></li>
-          <li><a href="{% url 'users:login' %}">Login</a></li>
+          <li><a href="{% url 'users:profile' %}">View Profile</a></li>
+          <li><a href="{% url 'users:logout' %}">Logout</a></li>
           <li>
             <a href="{% url 'services:track_request' %}">Track Request</a>
           </li>
@@ -38,12 +38,12 @@
         <input type="email" id="email" name="email" required /><br /><br />
 
         <label for="request_type">Request Type:</label>
-        <input
-          type="text"
-          id="request_type"
-          name="request_type"
-          required
-        /><br /><br />
+        <select id="request_type" name="request_type" required>
+          <option value="" disabled selected>-- Select Request Type --</option>
+          {% for key, value in form.fields.request_type.choices %}
+          <option value="{{ key }}">{{ value }}</option>
+          {% endfor %}</select
+        ><br /><br />
 
         <label for="description">Description:</label>
         <textarea id="description" name="description" required></textarea

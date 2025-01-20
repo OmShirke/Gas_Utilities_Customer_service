@@ -9,11 +9,19 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
-    <h1>Track Your Requests</h1>
-
-    <a href="{% url 'home' %}">
-      <button type="button">Home</button>
-    </a>
+    <header>
+      <h1>Track your Requests</h1>
+      <nav>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'users:profile' %}">View Profile</a></li>
+          <li><a href="{% url 'users:logout' %}">Logout</a></li>
+          <li>
+            <a href="{% url 'services:track_request' %}">Track Request</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
     {% if requests %}
     <table border="1">

@@ -1,25 +1,19 @@
+<!-- profile.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gas Utility Service</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
   </head>
   <body>
     <header>
-      <h1>Welcome to the Gas Utility Service!</h1>
+      <h1>View Profile</h1>
       <nav>
         <ul>
           <li><a href="{% url 'home' %}">Home</a></li>
-          {% if user.is_authenticated %}
-          <li><a href="{% url 'users:profile' %}">View Profile</a></li>
           <li><a href="{% url 'users:logout' %}">Logout</a></li>
-          {% else %}
-          <li><a href="{% url 'users:register' %}">Register</a></li>
-          <li><a href="{% url 'users:login' %}">Login</a></li>
-          {% endif %}
           <li>
             <a href="{% url 'services:submit_request' %}">Submit Request</a>
           </li>
@@ -29,15 +23,9 @@
         </ul>
       </nav>
     </header>
-    <main>
-      {% if messages %}
-      <ul class="messages">
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-      </ul>
-      {% endif %}
-      <p>Submit and track your service requests easily.</p>
-    </main>
+    <p>Username: {{ user.username }}</p>
+    <p>Email: {{ user.email }}</p>
+
+    <a href="{% url 'users:edit_profile' %}">Edit Profile</a>
   </body>
 </html>

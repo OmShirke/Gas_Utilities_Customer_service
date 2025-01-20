@@ -8,9 +8,21 @@ class ServiceRequest(models.Model):
         ('RESOLVED', 'Resolved'),
     ]
 
+    REQUEST_TYPE_CHOICES = [
+        ('new_connection', 'New Connection'),
+        ('modification', 'Service Modification'),
+        ('maintenance', 'Maintenance and Repairs'),
+        ('billing', 'Billing and Payment'),
+        ('disconnection', 'Disconnection or Reconnection'),
+        ('inspection', 'Safety Inspection'),
+        ('upgrade', 'Service Upgrade'),
+        ('emergency', 'Emergency Services'),
+        ('general', 'General Inquiry'),
+    ]
+    request_type = models.CharField(max_length=50, choices=REQUEST_TYPE_CHOICES)
+
     customer_name = models.CharField(max_length=255)
     email = models.EmailField()
-    request_type = models.CharField(max_length=100)
     description = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='PENDING')
     created_at = models.DateTimeField(auto_now_add=True)
